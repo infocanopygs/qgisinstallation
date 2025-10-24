@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QGIS Installation Guide</title>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f9fa;
+      position: relative;
+      overflow-x: hidden;
+    }
+    header {
+      background: #ffffff;
+      padding: 10px 20px;
+      text-align: left;
+      border-bottom: 2px solid #ddd;
+    }
+    header img {
+      height: 60px;
+    }
+    main {
+      max-width: 900px;
+      margin: 30px auto;
+      background: #ffffff;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      position: relative;
+      z-index: 1;
+    }
+    h1, h2, h3 {
+      color: #003366;
+    }
+    h1 {
+      text-align: center;
+      border-bottom: 2px solid #003366;
+      padding-bottom: 10px;
+    }
+    code {
+      background: #eef;
+      padding: 3px 5px;
+      border-radius: 4px;
+    }
+    footer {
+      text-align: center;
+      font-size: 14px;
+      color: #666;
+      padding: 10px;
+      border-top: 1px solid #ccc;
+      background-color: #fff;
+      position: relative;
+      z-index: 2;
+    }
+    /* Watermark */
+    .watermark {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-30deg);
+      font-size: 120px;
+      color: rgba(0, 0, 0, 0.05);
+      user-select: none;
+      z-index: 0;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="watermark">SMR</div>
+  <header>
+    <img src="https://tropicalbiosummit.org/images/ctbc-logo.png" alt="CTBC Logo">
+  </header>
+  <main>
+    <h1>🗺️ QGIS Installation Guide</h1>
+
+    <h2>🌍 What is QGIS?</h2>
+    <p><strong>QGIS (Quantum GIS)</strong> is a free and open-source Geographic Information System used for mapping, spatial data analysis, and visualization. It is widely used in environmental studies, remote sensing, marine science, and urban planning.</p>
+
+    <h2>🧭 Step 1: Download QGIS</h2>
+    <p>Go to the official website: <a href="https://qgis.org/en/site/forusers/download.html" target="_blank">https://qgis.org/en/site/forusers/download.html</a></p>
+
+    <h3>Choose your operating system:</h3>
+    <ul>
+      <li><strong>Windows</strong> – use the “Standalone Installer”</li>
+      <li><strong>macOS</strong> – download the .dmg file or install using Homebrew</li>
+      <li><strong>Linux (Ubuntu)</strong> – use terminal commands</li>
+    </ul>
+
+    <h2>🪟 For Windows Users</h2>
+    <ol>
+      <li>Click <strong>Download QGIS Standalone Installer (Latest LTR)</strong>.</li>
+      <li>Double-click the installer file and choose <strong>Express Install</strong>.</li>
+      <li>Wait until installation completes.</li>
+      <li>Open <strong>QGIS Desktop (LTR)</strong> from the Start menu.</li>
+    </ol>
+    <p>✅ Check version: <code>Help → About → QGIS Version</code></p>
+
+    <h2>🍏 For macOS Users</h2>
+    <ol>
+      <li>Download the <code>.dmg</code> file from QGIS site.</li>
+      <li>Drag <strong>QGIS.app</strong> into Applications.</li>
+      <li>Or install via terminal: <code>brew install --cask qgis</code></li>
+    </ol>
+
+    <h2>🐧 For Linux (Ubuntu/Debian) Users</h2>
+    <pre><code>sudo apt update
+sudo apt install gnupg software-properties-common
+sudo add-apt-repository ppa:ubuntugis/ppa
+sudo apt update
+sudo apt install qgis qgis-plugin-grass
+qgis --version</code></pre>
+
+    <h2>⚙️ Step 2: Setup and Customization</h2>
+    <ul>
+      <li>Create a folder for your projects (e.g. D:\QGIS_Projects\Wetland_Study)</li>
+      <li>In QGIS: <strong>Settings → Options → System → Default Paths</strong></li>
+      <li>Set default CRS to <strong>WGS 84 (EPSG:4326)</strong></li>
+      <li>Enable <strong>On-the-fly CRS transformation</strong></li>
+    </ul>
+
+    <h2>🔌 Step 3: Install Useful Plugins</h2>
+    <table border="1" cellspacing="0" cellpadding="5">
+      <tr><th>Plugin</th><th>Purpose</th></tr>
+      <tr><td>HCMGIS</td><td>Add Google (Satellite, Hybrid), ESRI, Bing, or OSM maps</td></tr>
+      <tr><td>QuickMapServices</td><td>Add Google, Bing, or OSM maps</td></tr>
+      <tr><td>OpenLayers Plugin</td><td>View base maps</td></tr>
+      <tr><td>Semi-Automatic Classification Plugin (SCP)</td><td>Remote sensing analysis</td></tr>
+      <tr><td>Coordinate Capture</td><td>Extract lat/long</td></tr>
+      <tr><td>TimeManager</td><td>Time-based visualization</td></tr>
+    </table>
+
+    <h2>🧰 Optional: Python Libraries</h2>
+    <pre><code>pip install geopandas rasterio shapely fiona pyproj</code></pre>
+
+    <h2>🧩 Step 4: Test the Installation</h2>
+    <ul>
+      <li>Open QGIS</li>
+      <li>Load a shapefile (e.g. India boundary)</li>
+      <li>Add base map via QuickMapServices → OpenStreetMap</li>
+      <li>Save the project as .qgz</li>
+    </ul>
+
+    <h2>💡 Classroom Activity</h2>
+    <ol>
+      <li>Install QGIS and open a new project</li>
+      <li>Load a shapefile or GeoJSON file</li>
+      <li>Add a base map and identify one polygon feature</li>
+      <li>Export the map as PNG</li>
+    </ol>
+
+    <h2>📘 Helpful Links</h2>
+    <ul>
+      <li><a href="https://docs.qgis.org" target="_blank">QGIS Documentation</a></li>
+      <li><a href="https://qgis.org/downloads/data/" target="_blank">Sample Data</a></li>
+      <li><a href="https://www.qgistutorials.com" target="_blank">QGIS Tutorials</a></li>
+    </ul>
+  </main>
+
+  <footer>
+    © Sethu Madhav | All Rights Reserved
+  </footer>
+</body>
+</html>
